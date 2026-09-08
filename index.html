@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLEN DESCAMPS — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@500,700,800,900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="scroll-progress-bar" id="progressBar"></div>
+
+  <div class="editor-dock" id="editorDock">
+    <div class="editor-dock-pill">
+      <button class="editor-toggle-btn" id="editorToggleBtn" title="Toggle Live On-Page Editing">
+        <i data-lucide="edit-3"></i>
+        <span>Edit Mode</span>
+      </button>
+      <div class="editor-actions" id="editorActions" style="display: none;">
+        <button class="editor-save-btn" id="editorSaveBtn" title="Save changes to your browser">
+          <i data-lucide="check"></i>
+          <span>Save</span>
+        </button>
+        <button class="editor-export-btn" id="editorExportBtn" title="Download updated index.html">
+          <i data-lucide="download"></i>
+          <span>Export HTML</span>
+        </button>
+        <button class="editor-reset-btn" id="editorResetBtn" title="Reset changes">
+          <i data-lucide="rotate-ccw"></i>
+        </button>
+      </div>
+    </div>
+    <div class="editor-hint" id="editorHint" style="display: none;">
+      Click any text on the page to edit directly
+    </div>
+  </div>
+
+  <div class="bg-glow blob-1"></div>
+  <div class="bg-glow blob-2"></div>
+  <div class="bg-glow blob-3"></div>
+  <canvas id="starfield"></canvas>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        BLEN <span class="nav-logo-sub">DESCAMPS</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about" data-i18n="nav_about">About</a></li>
+        <li><a href="#skills" data-i18n="nav_skills">Skills & Education</a></li>
+        <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+        <li><a href="#projects" data-i18n="nav_projects">Projects & Games</a></li>
+        <li><a href="#contact" class="btn-nav" data-i18n="nav_contact">Contact</a></li>
+      </ul>
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" data-lang="fr">FR</button>
+        <button class="lang-btn active" data-lang="en">EN</button>
+      </div>
+      <button class="mobile-menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="status-pill reveal-item">
+            <span class="status-indicator"></span>
+            <span data-i18n="hero_status">Game & Software Developer &bull; Ath, Belgique</span>
+          </div>
+          <div class="hero-name reveal-item">Blen Descamps</div>
+          <h1 class="hero-title reveal-item" data-i18n="hero_title">
+            Building engaging, <br />
+            <span class="gold-gradient-text">resilient software</span> & interactive games.
+          </h1>
+          <p class="hero-subtitle reveal-item" data-i18n="hero_subtitle">
+            C# &bull; Unity &bull; Systems Design &bull; Planning to launch <strong style="color: var(--c-vibrant-gold);">Magible Studio</strong>. Making the magic of your ideas tangible!
+          </p>
+        </div>
+
+        <div class="hero-visual reveal-item">
+          <div class="portrait-wrapper">
+            <div class="portrait-frame">
+              <div class="portrait-img-box">
+                <img src="profile.jpg" alt="Blen Descamps" class="portrait-img" />
+              </div>
+              <div class="floating-badge badge-1">
+                <span data-i18n="badge_1">Sincere</span>
+              </div>
+              <div class="floating-badge badge-2">
+                <span data-i18n="badge_2">Adaptable</span>
+              </div>
+              <div class="floating-badge badge-3">
+                <span data-i18n="badge_3">Time Savvy</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="scroll-cue">
+        <span data-i18n="scroll_cue">Scroll to explore</span>
+        <div class="mouse-icon">
+          <div class="wheel"></div>
+        </div>
+      </a>
+    </section>
+
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header reveal-item">
+          <span class="section-tag" data-i18n="about_tag">01 / Profile</span>
+          <h2 class="section-title" data-i18n="about_heading">« <em>Lier Humains et Systèmes à travers la technologie</em> »</h2>
+        </div>
+
+        <div class="about-single-wrapper">
+          <div class="about-card glass-card about-narrative-card reveal-item" data-delay="100">
+            <div class="card-icon"><i data-lucide="compass"></i></div>
+            <h3 data-i18n="about_story_title" class="about-story-title">Mon Chemin de Traverse</h3>
+            
+            <div class="story-timeline">
+              <!-- Step 01: 1998 & Hardware -->
+              <div class="story-timeline-item">
+                <div class="story-timeline-marker"></div>
+                <div class="story-timeline-body">
+                  <div class="story-timeline-badge" data-i18n="story_step1_tag">1998 // L'Étincelle & Le Hardware</div>
+                  <div class="story-passage-with-photos">
+                    <p data-i18n="about_p1" class="story-p-intro">
+                      Mon histoire avec la tech n'a pas commencé dans un amphithéâtre d'informatique. Elle a commencé en 1998, manette de NES en main à 6 ans, avec la certitude intime que le jeu vidéo ferait toujours partie de ma vie. Elle a continué avec un vieux kit radio retapé avec mon père déniché en brocante, puis vers 12 ans, les mains dans le boîtier à monter le premier PC d'un ami.
+                    </p>
+                    <div class="story-photos-duo story-photos-single">
+                      <figure class="story-polaroid polaroid-radio">
+                        <div class="polaroid-frame">
+                          <img src="radio-kit.jpg" alt="Kit radio" loading="lazy" />
+                        </div>
+                        <figcaption data-i18n="about_polaroid_radio">Kit radio retapé</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 02: Detours & Kitchen -->
+              <div class="story-timeline-item">
+                <div class="story-timeline-marker"></div>
+                <div class="story-timeline-body">
+                  <div class="story-timeline-badge" data-i18n="story_step2_tag">Les Détours // Le Coup de Feu & Le Collectif</div>
+                  <div class="story-passage-with-photos story-passage-reversed">
+                    <div class="story-photos-duo story-photos-left">
+                      <figure class="story-polaroid polaroid-cuisine-chef">
+                        <div class="polaroid-frame">
+                          <img src="cuisine-chef.jpg" alt="En cuisine - Tablier & rigueur" loading="lazy" />
+                        </div>
+                        <figcaption data-i18n="about_polaroid_chef">Le coup de feu</figcaption>
+                      </figure>
+                      <figure class="story-polaroid polaroid-cuisine-brigade">
+                        <div class="polaroid-frame">
+                          <img src="cuisine-brigade.jpg" alt="En brigade - Sens du collectif" loading="lazy" />
+                        </div>
+                        <figcaption data-i18n="about_polaroid_brigade">Le sens du collectif</figcaption>
+                      </figure>
+                    </div>
+                    <p data-i18n="about_p2" class="story-p-intro">
+                      L'étincelle était là, mais la vie prend parfois des détours nécessaires. J'ai étudié les langues et la traduction, monté des machines la nuit en dévorant tout ce qui touchait au code et au design, avant d'enfiler un tablier de cuisinier pour soutenir ma famille. En cuisine, j'ai appris le coup de feu, la rigueur du geste et le sens du collectif. Mais au fond de moi, je savais que je passais à côté de mon véritable atelier.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 03: Enterprise IT & Systems -->
+              <div class="story-timeline-item">
+                <div class="story-timeline-marker"></div>
+                <div class="story-timeline-body">
+                  <div class="story-timeline-badge" data-i18n="story_step3_tag">En Entreprise // Le Pont Humains & Systèmes</div>
+                  <div class="story-passage-with-photos">
+                    <p data-i18n="about_p3" class="story-p-intro">
+                      De retour dans les bureaux, je me suis agrippé à chaque opportunité tech et chaque projet IT qui passait pour apprendre sur le tas, accumuler de l'expérience et faire le pont entre l'humain et les systèmes.
+                    </p>
+                    <div class="story-photos-duo story-photos-single">
+                      <figure class="story-polaroid polaroid-it-project">
+                        <div class="polaroid-frame frame-wide">
+                          <img src="it-project-dreamvision.png" alt="DreamVision - Projets IT" loading="lazy" />
+                        </div>
+                        <figcaption data-i18n="about_polaroid_it">DreamVision • Projets IT</figcaption>
+                      </figure>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 04: Alignment & Technocité -->
+              <div class="story-timeline-item">
+                <div class="story-timeline-marker"></div>
+                <div class="story-timeline-body">
+                  <div class="story-timeline-badge" data-i18n="story_step4_tag">2026 // L'Alignement & Technocité</div>
+                  <div class="story-passage-with-photos story-passage-reversed">
+                    <div class="story-photos-duo story-photos-left story-photos-single">
+                      <figure class="story-polaroid polaroid-technocite">
+                        <div class="polaroid-frame frame-portrait">
+                          <img src="portrait-technocite.jpg" alt="2026 - Technocité" loading="lazy" />
+                        </div>
+                        <figcaption data-i18n="about_polaroid_technocite">2026 • Technocité</figcaption>
+                      </figure>
+                    </div>
+                    <p data-i18n="about_p4" class="story-p-intro">
+                      En 2026, suite à un licenciement, j'ai choisi de transformer cette rupture en alignement. À 33 ans, j'ai décidé d'écouter enfin mon instinct : rejoindre Technocité pour me former solidement au développement et au game design, embrasser ce qui me passionne viscéralement et m'épanouir pleinement dans ce métier.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Step 05: The North Star -->
+              <div class="story-timeline-item story-timeline-final">
+                <div class="story-timeline-marker"></div>
+                <div class="story-timeline-body">
+                  <div class="story-timeline-badge" data-i18n="story_step5_tag">Le Cap // Pour Elle</div>
+                  <p data-i18n="about_p5" class="story-highlight">
+                    « Pour être aligné avec moi-même, prêt à relever des défis plus grands que moi… et pour que ma fille puisse grandir en étant fière de son père. »
+                  </p>
+                  <div class="story-daughter-showcase">
+                    <figure class="story-polaroid polaroid-daughter">
+                      <div class="polaroid-frame frame-daughter">
+                        <img src="daughter.jpg" alt="Pour elle - Ma plus grande fierté" loading="lazy" />
+                      </div>
+                      <figcaption data-i18n="about_polaroid_daughter">Pour elle</figcaption>
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header reveal-item">
+          <span class="section-tag" data-i18n="skills_tag">02 / Capabilities</span>
+          <h2 class="section-title" data-i18n="skills_heading">Tools & Technical Stack</h2>
+          <p class="section-desc" data-i18n="skills_sub">Technologies and technical workflows used across development.</p>
+        </div>
+
+        <div class="skills-wrapper">
+          <div class="skill-category glass-card reveal-item" data-delay="100">
+            <div class="skill-cat-header">
+              <i data-lucide="wrench"></i>
+              <h3 data-i18n="panel_tools_title">Outils</h3>
+            </div>
+            <ul class="skill-bullet-list">
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="tool_1">Unity &bull; Unreal Engine</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="tool_2">Visual Studio &bull; Rider</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="tool_3">Git &bull; GitHub &bull; CI/CD</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="tool_4">Jira &bull; HacknPlan</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="tool_5">Progiciels ERP (SAP SD &bull; Odoo)</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="tool_6">Suite Microsoft (Office 365)</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-category glass-card reveal-item" data-delay="150">
+            <div class="skill-cat-header">
+              <i data-lucide="gamepad-2"></i>
+              <h3 data-i18n="panel_skills_title">Compétences</h3>
+            </div>
+            <ul class="skill-bullet-list">
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_1">Programmation Gameplay &bull; Architecture C#</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_2">Game Design &bull; Mécaniques de jeu</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_3">Représentation BPML / BPMN</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_4">Analyse Business &bull; Recueil de User Stories</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_5">Gestion de Sprints &bull; Méthodologie Agile</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_6">Utilisation responsable de l'IA</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_7">Audit interne</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_8">Intégration Systèmes IT &bull; Résolution de problèmes</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_9">Communication efficace &bull; Didactique</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="skill_10">Pédagogie &bull; Travail d'équipe &bull; Leadership</span></li>
+            </ul>
+          </div>
+
+          <div class="skill-category glass-card reveal-item" data-delay="200">
+            <div class="skill-cat-header">
+              <i data-lucide="languages"></i>
+              <h3 data-i18n="panel_lang_title">Langues</h3>
+            </div>
+            <ul class="skill-bullet-list">
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="lang_1">Français</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="lang_2">Anglais</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="lang_3">Néerlandais</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="lang_4">C#</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="lang_5">JavaScript</span></li>
+              <li class="skill-bullet-item"><span class="skill-bullet-dot"></span><span data-i18n="lang_6">HTML5 &bull; CSS3</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="education-container reveal-item" data-delay="300" style="margin-top: 5rem;">
+          <div class="section-header" style="margin-bottom: 2rem;">
+            <span class="section-tag" data-i18n="edu_tag">Education & Certifications</span>
+            <h3 class="section-title" style="font-size: 1.85rem;" data-i18n="edu_heading">Academic Background</h3>
+          </div>
+
+          <div class="education-grid">
+            <div class="edu-card glass-card">
+              <div class="edu-period" data-i18n="edu1_period">Nov 2025 — Nov 2026</div>
+              <div class="edu-degree" data-i18n="edu1_degree">Game Development Specialization</div>
+              <div class="edu-school">Technocité</div>
+              <p class="timeline-desc" data-i18n="edu1_desc">Intensive program in C#, Unity engine architecture, 3D math, physics engines, and playable game prototypes.</p>
+            </div>
+
+            <div class="edu-card glass-card">
+              <div class="edu-period" data-i18n="edu2_period">June 2025 — Dec 2025</div>
+              <div class="edu-degree" data-i18n="edu2_degree">Introduction to IBM Business Analysis</div>
+              <div class="edu-school">Coursera &bull; IBM</div>
+              <p class="timeline-desc" data-i18n="edu2_desc">Systems modeling, data flow diagrams, stakeholder translation, and technical requirements documentation.</p>
+            </div>
+
+            <div class="edu-card glass-card">
+              <div class="edu-period">2016 — 2018</div>
+              <div class="edu-degree" data-i18n="edu3_degree">Teaching Degree / Germanic Languages & Linguistics</div>
+              <div class="edu-school">HELHa — Haute École Louvain en Hainaut</div>
+              <p class="timeline-desc" data-i18n="edu3_desc">Pedagogy, German & English linguistics, cross-cultural communication and didactic methodology.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header reveal-item">
+          <span class="section-tag" data-i18n="exp_tag">03 / Trajectory</span>
+          <h2 class="section-title" data-i18n="exp_heading">Professional Journey & Career Milestones</h2>
+          <p class="section-desc" data-i18n="exp_sub">From enterprise systems integration to Creative Technology and Game Development.</p>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item reveal-item" data-delay="100">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-card">
+              <div class="timeline-period" data-i18n="exp1_period">March 2024 — November 2025</div>
+              <h3 class="timeline-role" data-i18n="exp1_role">Customer Relationship Manager / SD Module Integration — Key User</h3>
+              <div class="timeline-company" data-i18n="exp1_company">Rosier S.A.</div>
+              <div class="timeline-desc" data-i18n="exp1_desc">
+                <ul class="timeline-bullet-list">
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Fait le lien entre les utilisateurs et l’équipe SAP, recueillant et traduisant les besoins opérationnels en spécifications fonctionnelles et cas de test.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Conçu et exécuté des scénarios de tests fonctionnels pour l’environnement QAS.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Accompagne et forme les utilisateurs à l’adoption des nouvelles solutions digitales, favorisant la montée en compétence et la satisfaction des équipes.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-item" data-delay="150">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-card">
+              <div class="timeline-period" data-i18n="exp2_period">December 2022 — December 2023</div>
+              <h3 class="timeline-role" data-i18n="exp2_role">Spécialiste de planification de transport</h3>
+              <div class="timeline-company">Lutosa &bull; Leuze-en-Hainaut, Belgique</div>
+              <div class="timeline-desc" data-i18n="exp2_desc">
+                <ul class="timeline-bullet-list">
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Soutenu l’intégration d’un nouveau système de gestion d’entrepôt (WMS) en assurant la coordination entre les équipes logistiques, IT et prestataires externes.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Modélisé et documenté les flux logistiques avec BPMN, apportant une meilleure visibilité sur les points de friction et favorisant l’automatisation des processus.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-item" data-delay="200">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-card">
+              <div class="timeline-period" data-i18n="exp3_period">July 2021 — December 2022</div>
+              <h3 class="timeline-role" data-i18n="exp3_role">Coordinator in Sales & Logistics / Odoo ERP Integration</h3>
+              <div class="timeline-company">SOTECNA S.A. &bull; Belgique</div>
+              <div class="timeline-desc" data-i18n="exp3_desc">
+                <ul class="timeline-bullet-list">
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Contribué au déploiement de l’ERP Odoo (CRM, Inventaire et production).</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Recueil d’user stories pour préparer à l’implémentation.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Participé à la migration de la base de données et aux tests fonctionnels.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Accompagné le changement, migré la base de données clients et articles (produits, étiquettes, nomenclatures).</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item reveal-item" data-delay="250">
+            <div class="timeline-dot"></div>
+            <div class="timeline-card glass-card">
+              <div class="timeline-period" data-i18n="exp4_period">July 2017 — March 2020</div>
+              <h3 class="timeline-role" data-i18n="exp4_role">Restaurant Manager & Operations Lead</h3>
+              <div class="timeline-company">Nationale 7 &bull; Tournai, Belgique</div>
+              <div class="timeline-desc" data-i18n="exp4_desc">
+                <ul class="timeline-bullet-list">
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Direction opérationnelle complète, gestion d'équipe.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Négociation fournisseurs.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Gestion des stocks.</span></li>
+                  <li class="timeline-bullet-item"><span class="timeline-bullet-dot"></span><span>Satisfaction client sous forte cadence.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="showcase-3d-section" id="projects">
+      <div class="showcase-3d-sticky-container" id="showcase3dSticky">
+        <div class="showcase-3d-viewport">
+          <canvas id="showcase3dCanvas"></canvas>
+          
+          <div class="showcase-hud-top">
+            <div class="hud-tag" data-i18n="showcase_hud_tag">04 / CREATIONS &bull; BLT GAMES</div>
+            <h2 class="hud-title" data-i18n="showcase_hud_title">PROJECTS &amp; GAMES HELIX</h2>
+            <div class="hud-sub" data-i18n="showcase_hud_sub">SCROLL TO ORBIT &bull; ASCEND HELICAL ARCHIVE &bull; BLT GAMES &bull; MAGIBLE STUDIO</div>
+          </div>
+
+          <div class="showcase-hud-bottom">
+            <div class="hud-indicator" id="hudIndicator">ACTIVE PROJECT: 01 / 06 // AVIATOR'S QUEST</div>
+            <div class="hud-meta" id="hudMeta">BLT GAMES &bull; MAGIBLE STUDIO</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-box glass-card reveal-item">
+          
+          <div class="jarvis-wrapper">
+            <div class="jarvis-core-pulse">
+              <div class="jarvis-ring ring-outer"></div>
+              <div class="jarvis-ring ring-mid"></div>
+              <div class="jarvis-ring ring-inner"></div>
+              <canvas id="jarvisCanvas" width="260" height="260"></canvas>
+              <div class="jarvis-glow-center"></div>
+              <div class="jarvis-status-tag">CORE ACTIVE</div>
+            </div>
+          </div>
+
+          <div class="contact-header">
+            <span class="section-tag" data-i18n="contact_tag">05 / Connect</span>
+            <h2 class="section-title" data-i18n="contact_heading">Let's build something engaging</h2>
+            <p class="contact-desc" data-i18n="contact_sub">
+              Have an idea for a game, need a software architect, or want to collaborate on Magible Studio? Feel free to reach out.
+            </p>
+          </div>
+
+          <div class="contact-actions">
+            <a href="mailto:blenothelovers@hotmail.com" class="contact-button-main">
+              <i data-lucide="mail"></i>
+              <span>blenothelovers@hotmail.com</span>
+            </a>
+            
+            <div class="social-links">
+              <a href="https://github.com" target="_blank" rel="noopener" class="social-icon" aria-label="GitHub">
+                <i data-lucide="github"></i>
+              </a>
+              <a href="https://www.linkedin.com/in/blendescamps" target="_blank" rel="noopener" class="social-icon" aria-label="LinkedIn">
+                <i data-lucide="linkedin"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>&copy; 2026 DESCAMPS BLEN &bull; BLT Games. All rights reserved.</p>
+      <a href="#hero" class="back-to-top">
+        <span>Back to top</span>
+        <i data-lucide="arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
