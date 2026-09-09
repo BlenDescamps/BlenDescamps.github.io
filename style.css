@@ -1,28 +1,30 @@
 :root {
-  --c-deep-purple: #360568;
-  --c-royal-purple: #5B2A86;
+  /* Nuances chaleureuses : Prune royale, Aubergine velours, Ambre doux & Crème vanille */
+  --c-deep-purple: #220a2c;
+  --c-royal-purple: #481958;
   --c-vibrant-gold: #F7B801;
   --c-mint-green: #A5E6BA;
-  --c-warm-cream: #FFE7C2;
+  --c-warm-cream: #FFF3E1;
   --c-soft-teal: #9AC6C5;
+  --c-amber-warm: #E69A27;
   
-  --bg-main: #1d033a;
-  --bg-secondary: #27064d;
-  --card-bg: rgba(91, 42, 134, 0.35);
-  --card-border: rgba(255, 231, 194, 0.15);
-  --card-hover-border: rgba(247, 184, 1, 0.6);
+  --bg-main: #16081e;
+  --bg-secondary: #220c2b;
+  --card-bg: rgba(72, 25, 88, 0.42);
+  --card-border: rgba(255, 228, 192, 0.18);
+  --card-hover-border: rgba(247, 184, 1, 0.65);
 
   --primary: #F7B801;
-  --primary-light: #ffd043;
+  --primary-light: #ffd45e;
   --primary-glow: rgba(247, 184, 1, 0.35);
   
   --secondary: #A5E6BA;
   --accent: #9AC6C5;
   
-  --text-main: #FFFFFF;
-  --text-cream: #FFE7C2;
-  --text-muted: #d8cde6;
-  --text-dim: #9c8fb0;
+  --text-main: #FFFDF9;
+  --text-cream: #FFF3E0;
+  --text-muted: #E2D2C3;
+  --text-dim: #B8A395;
   
   --font-display: 'Cabinet Grotesk', 'Outfit', sans-serif;
   --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
@@ -45,7 +47,7 @@
 html {
   scroll-behavior: smooth;
   font-family: var(--font-sans);
-  background-color: var(--c-deep-purple);
+  background-color: var(--bg-main);
   color: var(--text-main);
   overflow-x: clip;
 }
@@ -55,7 +57,11 @@ body {
   min-height: 100vh;
   overflow-x: clip;
   line-height: 1.6;
-  background: radial-gradient(circle at 50% 0%, #3e0975 0%, #200442 55%, #14022a 100%);
+  background: 
+    radial-gradient(ellipse 90% 55% at 50% -5%, rgba(247, 184, 1, 0.14) 0%, transparent 65%),
+    radial-gradient(circle at 18% 28%, rgba(230, 154, 39, 0.09) 0%, transparent 45%),
+    radial-gradient(circle at 82% 62%, rgba(247, 184, 1, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 45%, #250d2e 0%, #16081e 65%, #0e0413 100%);
 }
 
 .scroll-progress-bar {
@@ -95,21 +101,21 @@ body {
 .blob-1 {
   top: -120px;
   right: -80px;
-  background: radial-gradient(circle, var(--c-royal-purple), transparent 70%);
+  background: radial-gradient(circle, rgba(230, 154, 39, 0.35), transparent 70%);
 }
 
 .blob-2 {
   bottom: 15%;
   left: -120px;
   background: radial-gradient(circle, var(--c-vibrant-gold), transparent 70%);
-  opacity: 0.15;
+  opacity: 0.22;
 }
 
 .blob-3 {
   top: 50%;
   right: 5%;
   background: radial-gradient(circle, var(--c-mint-green), transparent 70%);
-  opacity: 0.12;
+  opacity: 0.14;
 }
 
 .container {
@@ -190,10 +196,10 @@ body {
 }
 
 .navbar.scrolled {
-  background: rgba(36, 4, 70, 0.9);
+  background: rgba(22, 8, 30, 0.92);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(247, 184, 1, 0.2);
+  border-bottom: 1px solid rgba(247, 184, 1, 0.25);
   padding: 0.9rem 0;
 }
 
@@ -587,9 +593,10 @@ body {
 .about-narrative-card {
   padding: 3rem 3.5rem;
   position: relative;
-  background: rgba(42, 5, 80, 0.45);
-  border: 1px solid rgba(255, 231, 194, 0.15);
+  background: linear-gradient(155deg, rgba(62, 22, 74, 0.55) 0%, rgba(30, 10, 36, 0.72) 100%);
+  border: 1px solid rgba(255, 226, 188, 0.22);
   border-radius: 24px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.65), 0 0 45px rgba(247, 184, 1, 0.06);
 }
 
 @media (max-width: 768px) {
@@ -649,9 +656,9 @@ body {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #200442;
+  background: #190820;
   border: 3px solid var(--c-vibrant-gold);
-  box-shadow: 0 0 14px rgba(247, 184, 1, 0.45);
+  box-shadow: 0 0 16px rgba(247, 184, 1, 0.55);
   z-index: 3;
   transition: var(--transition-bounce);
 }
@@ -676,7 +683,7 @@ body {
 }
 
 .story-timeline-item:hover .story-timeline-marker::after {
-  background: #200442;
+  background: #190820;
 }
 
 .story-timeline-final .story-timeline-marker {
@@ -694,16 +701,16 @@ body {
 }
 
 .story-timeline-final:hover .story-timeline-marker::after {
-  background: #1a0433;
+  background: #120417;
 }
 
 .story-timeline-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.3rem 0.95rem;
-  background: rgba(247, 184, 1, 0.12);
-  border: 1px solid rgba(247, 184, 1, 0.35);
+  padding: 0.38rem 1.05rem;
+  background: linear-gradient(135deg, rgba(247, 184, 1, 0.18) 0%, rgba(230, 154, 39, 0.1) 100%);
+  border: 1px solid rgba(247, 184, 1, 0.45);
   border-radius: 12px;
   font-family: var(--font-accent);
   font-size: 0.82rem;
@@ -712,11 +719,12 @@ body {
   text-transform: uppercase;
   letter-spacing: 0.6px;
   margin-bottom: 1.2rem;
+  box-shadow: 0 4px 14px rgba(247, 184, 1, 0.12);
 }
 
 .story-timeline-final .story-timeline-badge {
-  background: rgba(165, 230, 186, 0.12);
-  border-color: rgba(165, 230, 186, 0.4);
+  background: rgba(165, 230, 186, 0.14);
+  border-color: rgba(165, 230, 186, 0.45);
   color: var(--c-mint-green);
 }
 
@@ -725,6 +733,7 @@ body {
   font-family: var(--font-body);
   font-size: 1.05rem;
   line-height: 1.85;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 .story-timeline-body .story-highlight {
@@ -755,14 +764,19 @@ body {
 
 .story-polaroid {
   width: 146px;
-  background: #faf7f2;
+  background: #fdfaf5;
   padding: 6px 6px 12px 6px;
   border-radius: 6px;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5), 0 3px 8px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 235, 205, 0.35);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55), 0 0 25px rgba(247, 184, 1, 0.08);
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
   cursor: pointer;
   position: relative;
   user-select: none;
+}
+
+.story-polaroid:hover {
+  box-shadow: 0 18px 36px rgba(0, 0, 0, 0.65), 0 0 30px rgba(247, 184, 1, 0.25);
 }
 
 .polaroid-frame {
@@ -770,7 +784,7 @@ body {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border-radius: 3px;
-  background: #1a0433;
+  background: #17071d;
 }
 
 .polaroid-frame img {
@@ -783,9 +797,9 @@ body {
 
 .story-polaroid figcaption {
   font-family: var(--font-accent);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  color: #2e1443;
+  color: #3b1828;
   text-align: center;
   margin-top: 6px;
   letter-spacing: 0.2px;
@@ -1499,8 +1513,10 @@ body {
 .edu-card {
   padding: 1.8rem;
   border-radius: 16px;
-  background: rgba(42, 5, 80, 0.45);
-  border: 1px solid rgba(255, 231, 194, 0.15);
+  background: var(--card-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--card-border);
   transition: var(--transition-smooth);
 }
 
