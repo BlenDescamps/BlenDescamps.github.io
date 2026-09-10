@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
   initSkillBars();
   initMobileMenu();
   initJarvisCore();
-  initLiveEditor();
   init3DShowcase();
 });
 
@@ -263,105 +262,6 @@ function initStarfield() {
   render();
 }
 
-function initLiveEditor() {
-  const toggleBtn = document.getElementById("editorToggleBtn");
-  const actionsBar = document.getElementById("editorActions");
-  const hintBox = document.getElementById("editorHint");
-  const saveBtn = document.getElementById("editorSaveBtn");
-  const exportBtn = document.getElementById("editorExportBtn");
-  const resetBtn = document.getElementById("editorResetBtn");
-
-  if (!toggleBtn) return;
-
-  const editableSelectors = "h1, h2, h3, p, span.hero-name, span.section-tag, .stat-label, .timeline-role, .timeline-company, .timeline-desc, .helix-badge, .btn span, .floating-badge span";
-  let isEditing = false;
-
-  const CONTENT_VERSION = "blen_portfolio_v3";
-  if (localStorage.getItem("blen_portfolio_version") !== CONTENT_VERSION) {
-    localStorage.removeItem("blen_portfolio_content");
-    localStorage.setItem("blen_portfolio_version", CONTENT_VERSION);
-  }
-
-  const savedContent = localStorage.getItem("blen_portfolio_content");
-  if (savedContent) {
-    try {
-      const parsed = JSON.parse(savedContent);
-      const elements = document.querySelectorAll(editableSelectors);
-      elements.forEach((el, idx) => {
-        if (parsed[idx] !== undefined) {
-          el.innerHTML = parsed[idx];
-        }
-      });
-    } catch (e) {}
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    isEditing = !isEditing;
-    document.body.classList.toggle("editing-active", isEditing);
-    toggleBtn.classList.toggle("active", isEditing);
-
-    if (isEditing) {
-      toggleBtn.querySelector("span").innerText = "Done Editing";
-      actionsBar.style.display = "flex";
-      hintBox.style.display = "block";
-    } else {
-      toggleBtn.querySelector("span").innerText = "Edit Mode";
-      actionsBar.style.display = "none";
-      hintBox.style.display = "none";
-    }
-
-    const elements = document.querySelectorAll(editableSelectors);
-    elements.forEach((el) => {
-      el.contentEditable = isEditing ? "true" : "false";
-    });
-  });
-
-  saveBtn.addEventListener("click", () => {
-    const elements = document.querySelectorAll(editableSelectors);
-    const contentMap = {};
-    elements.forEach((el, idx) => {
-      contentMap[idx] = el.innerHTML;
-    });
-    localStorage.setItem("blen_portfolio_content", JSON.stringify(contentMap));
-
-    saveBtn.innerHTML = '<i data-lucide="check-check"></i><span>Saved!</span>';
-    lucide.createIcons();
-    setTimeout(() => {
-      saveBtn.innerHTML = '<i data-lucide="check"></i><span>Save</span>';
-      lucide.createIcons();
-    }, 2000);
-  });
-
-  exportBtn.addEventListener("click", () => {
-    const wasEditing = isEditing;
-    if (wasEditing) toggleBtn.click();
-
-    const clone = document.documentElement.cloneNode(true);
-    const editorDock = clone.querySelector("#editorDock");
-    if (editorDock) editorDock.remove();
-
-    const cleanHTML = "<!DOCTYPE html>\n" + clone.outerHTML;
-    const blob = new Blob([cleanHTML], { type: "text/html" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "index.html";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-
-    if (wasEditing) toggleBtn.click();
-  });
-
-  resetBtn.addEventListener("click", () => {
-    if (confirm("Reset all text changes back to original?")) {
-      localStorage.removeItem("blen_portfolio_content");
-      window.location.reload();
-    }
-  });
-}
-
 function initMobileMenu() {
   const toggle = document.getElementById("menuToggle");
   const navLinks = document.querySelector(".nav-links");
@@ -497,125 +397,125 @@ function init3DShowcase() {
     en: [
       {
         num: "1",
-        badge: "FLAGSHIP // 3D ACTION",
-        title: "AVIATOR'S QUEST",
-        genre: "AIRBORNE 3D PLATFORMER & TIME TRIALS",
-        desc1: "Airborne platformer featuring the BLT mascot navigating floating city ruins",
-        desc2: "with dynamic aerial physics, tight controls, and precision obstacle courses.",
-        tags: ["Unity", "C#", "Custom Shaders", "Cinemachine"],
-        status: "BUILD: PLAYABLE PROTOTYPE // UNITY 6"
+        badge: "2D RETRO ARCADE // DELIVERED",
+        title: "THEY COME IN PEACE",
+        genre: "FAST-PACED 2D ARCADE SHOOTER",
+        desc1: "Classic arcade-inspired top-down shooter featuring dynamic enemy waves,",
+        desc2: "responsive ship maneuvering, bullet-dodging mechanics, and score attack.",
+        tags: ["Unity", "C#", "2D Arcade", "Retro Gameplay"],
+        status: "STATUS: DELIVERED // AWAITING REVAMP"
       },
       {
         num: "2",
-        badge: "URBAN SIM // VEHICLE PHYSICS",
-        title: "METROPOLIS DRIFT",
-        genre: "ENVIRONMENT & ADVANCED LEVEL DESIGN",
-        desc1: "City driving simulation inspired by vintage aesthetics & cyberpunk roads.",
-        desc2: "Features realistic suspension, cinematic camera tracking, and Lumen lighting.",
-        tags: ["Unreal Engine", "Vehicle Physics", "Lumen Lighting", "Blueprints"],
-        status: "BUILD: ENVIRONMENT TECH DEMO // UE5"
+        badge: "2D SIDE-SCROLLER // DELIVERED",
+        title: "REBEKKA NO FUKUSHUU",
+        genre: "2D SIDE-SCROLLING SHOOTER",
+        desc1: "Narrative-driven side-scrolling shoot 'em up with intense enemy formations,",
+        desc2: "modular weapon mechanics, cinematic boss encounters, and parallax scrolling.",
+        tags: ["Unity", "C#", "Side-Scroller", "Shmup"],
+        status: "STATUS: DELIVERED // AWAITING REVAMP"
       },
       {
         num: "3",
-        badge: "WEB & TOOLS // COMMUNITY",
-        title: "BLT GAME HUB",
-        genre: "INTERACTIVE WEBGL PORTAL & PLATFORM",
-        desc1: "Dedicated gaming portal featuring browser-playable WebGL minigames,",
-        desc2: "high-score tracking, responsive community hub, and dynamic soundscapes.",
-        tags: ["TypeScript", "WebGL", "Three.js", "Node.js", "Tailwind"],
-        status: "BUILD: LIVE WEB APPLICATION"
+        badge: "3D ARCADE // DELIVERED",
+        title: "WHAT CAN I GET YA?",
+        genre: "FAST-PACED 3D DRINK SERVING SIM",
+        desc1: "Chaotic 3D drink-crafting and bar service arcade game under rush-hour pressure.",
+        desc2: "Mix recipes, slide drinks to thirsty patrons, and master serving combos.",
+        tags: ["Unity 3D", "C#", "Arcade 3D", "Physics Sim"],
+        status: "STATUS: DELIVERED // AWAITING REVAMP"
       },
       {
         num: "4",
-        badge: "GAMEPLAY ARCHITECTURE",
-        title: "PHYSICS & MECHANICS LAB",
-        genre: "CUSTOM KINEMATICS & PLAYER CONTROLLERS",
-        desc1: "Research sandbox focused on tactile character controllers, momentum handling,",
-        desc2: "predictive collision algorithms, and modular state machines in C#.",
-        tags: ["C#", "Unity Engine", "State Machines", "Kinematics"],
-        status: "BUILD: BENCHMARK & LAB REPO"
+        badge: "VISUAL NOVEL // IN PROGRESS",
+        title: "COFFEE-LAB",
+        genre: "BRANCHING VISUAL NOVEL & BREWING SIM",
+        desc1: "Cozy narrative experience where brewing recipes and serving custom coffee",
+        desc2: "alters customer dialogues, unlocks confessions, and shapes the branching story.",
+        tags: ["Unity", "C#", "Visual Novel", "Narrative Design"],
+        status: "STATUS: WORK IN PROGRESS // PRE-PRODUCTION"
       },
       {
         num: "5",
-        badge: "GRAPHICS & VOLUMETRICS",
-        title: "HLSL SHADER MATRIX",
-        genre: "CUSTOM RENDERING & ATMOSPHERIC VFX",
-        desc1: "Collection of custom HLSL shaders: procedural water displacement, dissolve FX,",
-        desc2: "volumetric lighting, post-processing filters, and optimized draw calls.",
-        tags: ["HLSL", "URP Shaders", "VFX Graph", "Compute Shaders"],
-        status: "BUILD: SHADER COLLECTION"
+        badge: "ENTERPRISE SYSTEMS // DELIVERED",
+        title: "MICROBREWERY CUSTOM ERP",
+        genre: "INTEGRATED BREWERY MANAGEMENT & INVENTORY",
+        desc1: "Bespoke enterprise management platform tailored for microbrewery operations:",
+        desc2: "batch recipe tracking, fermentation lifecycle, raw materials, and invoicing.",
+        tags: ["Custom ERP", "BPMN Modeling", "Supply Chain", "Database"],
+        status: "STATUS: DELIVERED // PRODUCTION SYSTEM"
       },
       {
         num: "6",
-        badge: "STUDIO PRODUCTION",
-        title: "MAGIBLE STUDIO GENESIS",
-        genre: "UPCOMING INDIE TITLE // BLT GAMES",
-        desc1: "The foundational production of Magible Studio: bringing tactile, magical ideas",
-        desc2: "to life with deep narrative immersion and satisfying core game mechanics.",
-        tags: ["Magible Studio", "C# Architecture", "Game Design", "Commercial"],
-        status: "STATUS: IN ACTIVE PRE-PRODUCTION"
+        badge: "STUDIO // SOFTWARES & GAMES",
+        title: "MAGIBLE SOFTWARES",
+        genre: "PURPOSE-BUILT TOOLS & INTERACTIVE GAMES",
+        desc1: "Creative studio initiative building custom software tools and engaging games,",
+        desc2: "bridging technology and imagination to make the magic of your ideas tangible.",
+        tags: ["Magible Studio", "Software Tools", "Game Development", "C# / .NET"],
+        status: "STATUS: IN ACTIVE DEVELOPMENT // MAGIBLE STUDIO"
       }
     ],
     fr: [
       {
         num: "1",
-        badge: "PROJET PHARE // ACTION 3D",
-        title: "AVIATOR'S QUEST",
-        genre: "JEU DE PLATEFORME AÉRIEN & TIME TRIALS",
-        desc1: "Jeu de plateforme aérien mettant en scène la mascotte BLT dans des cités flottantes,",
-        desc2: "avec physique aérienne dynamique, maniabilité millimétrée et contre-la-montre.",
-        tags: ["Unity", "C#", "Custom Shaders", "Cinemachine"],
-        status: "VERSION: PROTOTYPE JOUABLE // UNITY 6"
+        badge: "ARCADE RÉTRO 2D // LIVRÉ",
+        title: "THEY COME IN PEACE",
+        genre: "SHOOTER ARCADE 2D NERVÉ",
+        desc1: "Shooter spatial en vue du dessus inspiré des grands classiques de l'arcade,",
+        desc2: "vagues d'ennemis dynamiques, esquive au millimètre et course au high-score.",
+        tags: ["Unity", "C#", "Arcade 2D", "Gameplay Rétro"],
+        status: "STATUT : LIVRÉ // EN ATTENTE DE REFONTE"
       },
       {
         num: "2",
-        badge: "SIMULATION URBAINE // PHYSIQUE",
-        title: "METROPOLIS DRIFT",
-        genre: "ENVIRONNEMENT & LEVEL DESIGN AVANCÉ",
-        desc1: "Simulation de conduite urbaine inspirée des deux-roues vintage et néons cyberpunk.",
-        desc2: "Gestion réaliste des suspensions, caméras cinématiques et éclairage Lumen.",
-        tags: ["Unreal Engine", "Physique Véhicule", "Lumen Lighting", "Blueprints"],
-        status: "VERSION: DÉMO TECHNIQUE // UE5"
+        badge: "SIDE-SCROLLER 2D // LIVRÉ",
+        title: "REBEKKA NO FUKUSHUU",
+        genre: "SHOOTER 2D À DÉFILEMENT HORIZONTAL",
+        desc1: "Shoot 'em up narratif à défilement horizontal aux vagues d'ennemis intenses,",
+        desc2: "système d'armes modulables, combats de boss épiques et décors en parallaxe.",
+        tags: ["Unity", "C#", "Side-Scroller", "Shmup"],
+        status: "STATUT : LIVRÉ // EN ATTENTE DE REFONTE"
       },
       {
         num: "3",
-        badge: "WEB & OUTILS // COMMUNAUTÉ",
-        title: "BLT GAME HUB",
-        genre: "PORTAIL WEBGL & ESPACE COMMUNAUTAIRE",
-        desc1: "Portail studio hébergeant des mini-jeux WebGL jouables directement sur navigateur,",
-        desc2: "classements en temps réel, interface réactive et ambiance sonore immersive.",
-        tags: ["TypeScript", "WebGL", "Three.js", "Node.js", "Tailwind"],
-        status: "VERSION: APPLICATION WEB EN LIGNE"
+        badge: "ARCADE 3D // LIVRÉ",
+        title: "WHAT CAN I GET YA?",
+        genre: "JEU D'ARCADE 3D DE SERVICE DE BOISSONS",
+        desc1: "Jeu d'arcade 3D frénétique de service au comptoir en plein coup de feu.",
+        desc2: "Dosez, préparez et glissez les verres aux clients avant la fin du temps imparti.",
+        tags: ["Unity 3D", "C#", "Arcade 3D", "Physique Temps Réel"],
+        status: "STATUT : LIVRÉ // EN ATTENTE DE REFONTE"
       },
       {
         num: "4",
-        badge: "ARCHITECTURE GAMEPLAY",
-        title: "LAB PHYSIQUE & MÉCANIQUES",
-        genre: "KINEMATICS & CONTRÔLEURS JOUEURS C#",
-        desc1: "Laboratoire dédié aux contrôleurs de personnages tactiles, gestion de l'élan,",
-        desc2: "algorithmes de collision prédictifs et machines à états modulaires en C#.",
-        tags: ["C#", "Moteur Unity", "Machines à États", "Kinematics"],
-        status: "VERSION: BENCHMARK & REPO LAB"
+        badge: "VISUAL NOVEL // EN COURS",
+        title: "COFFEE-LAB",
+        genre: "VISUAL NOVEL & SIMULATION DE BRASSAGE CAFÉ",
+        desc1: "Expérience narrative intimiste où vos recettes de café et vos infusions",
+        desc2: "influencent directement les confessions des clients et l'évolution du récit.",
+        tags: ["Unity", "C#", "Visual Novel", "Design Narratif"],
+        status: "STATUT : EN COURS // PRÉ-PRODUCTION"
       },
       {
         num: "5",
-        badge: "RENDU & VOLUMÉTRIE",
-        title: "MATRICE SHADERS HLSL",
-        genre: "SHADERS PERSONNALISÉS & EFFETS VFX",
-        desc1: "Collection de shaders HLSL : déformation de surfaces d'eau, effets de dissolution,",
-        desc2: "brouillard volumétrique, filtres post-process et optimisation des draw-calls.",
-        tags: ["HLSL", "Shaders URP", "VFX Graph", "Compute Shaders"],
-        status: "VERSION: COLLECTION SHADERS"
+        badge: "SYSTÈMES ENTREPRISE // RÉALISÉ",
+        title: "ERP SUR MESURE MICROBRASSERIE",
+        genre: "GESTION DE PRODUCTION & LOGISTIQUE BRASSERIE",
+        desc1: "Plateforme ERP sur mesure développée pour les opérations d'une microbrasserie :",
+        desc2: "traçabilité des brassins, fermentation, stocks matières premières et facturation.",
+        tags: ["ERP sur mesure", "Modélisation BPMN", "Logistique", "Base de Données"],
+        status: "STATUT : RÉALISÉ // SYSTÈME EN PRODUCTION"
       },
       {
         num: "6",
-        badge: "PRODUCTION STUDIO",
-        title: "GENÈSE MAGIBLE STUDIO",
-        genre: "PROCHAIN TITRE INDÉ // BLT GAMES",
-        desc1: "La production fondatrice de Magible Studio : rendre tangibles des idées magiques",
-        desc2: "à travers une narration prenante et des mécaniques de gameplay percutantes.",
-        tags: ["Magible Studio", "Architecture C#", "Game Design", "Commercial"],
-        status: "STATUT: EN PRÉ-PRODUCTION ACTIVE"
+        badge: "STUDIO // LOGICIELS & JEUX",
+        title: "MAGIBLE SOFTWARES",
+        genre: "OUTILS SUR MESURE & JEUX VIDÉO INTERACTIFS",
+        desc1: "Initiative studio dédiée au développement d'outils logiciels et de jeux vidéo,",
+        desc2: "alliant technique et créativité pour donner vie à la magie de vos idées.",
+        tags: ["Magible Studio", "Outils Logiciels", "Développement Jeux", "C# / .NET"],
+        status: "STATUT : EN DÉVELOPPEMENT ACTIF // MAGIBLE STUDIO"
       }
     ]
   };
@@ -665,9 +565,9 @@ function init3DShowcase() {
     ctx.font = "bold 16px 'JetBrains Mono', monospace";
     ctx.fillText(`PROJECT 0${data.num} // ${data.badge}`, 36, 56);
 
-    // Title: Big bold display font
+    // Title: Big bold display font (auto-scaling for long titles)
     ctx.fillStyle = "#ffe7c2";
-    ctx.font = "bold 32px 'Cabinet Grotesk', sans-serif";
+    ctx.font = data.title.length > 22 ? "bold 26px 'Cabinet Grotesk', sans-serif" : "bold 32px 'Cabinet Grotesk', sans-serif";
     ctx.fillText(data.title, 36, 102);
 
     // Genre / Category
@@ -700,6 +600,7 @@ function init3DShowcase() {
         const textWidth = ctx.measureText(tag).width;
         const chipW = textWidth + 18;
         const chipH = 26;
+        if (curX + chipW > 604) return;
 
         ctx.fillStyle = "rgba(91, 42, 134, 0.65)";
         ctx.strokeStyle = "rgba(247, 184, 1, 0.45)";
@@ -728,8 +629,14 @@ function init3DShowcase() {
     ctx.lineTo(604, 310);
     ctx.stroke();
 
-    // Status label
-    ctx.fillStyle = "#a5e6ba";
+    // Status label (soft teal for delivered awaiting revamp, mint for delivered in prod, gold for in progress)
+    if (data.status.includes("AWAITING REVAMP") || data.status.includes("ATTENTE DE REFONTE")) {
+      ctx.fillStyle = "#9ac6c5";
+    } else if (data.status.includes("DELIVERED") || data.status.includes("RÉALISÉ") || data.status.includes("LIVRÉ")) {
+      ctx.fillStyle = "#a5e6ba";
+    } else {
+      ctx.fillStyle = "#f7b801";
+    }
     ctx.font = "bold 14px 'JetBrains Mono', monospace";
     ctx.fillText(data.status, 36, 350);
 
@@ -854,7 +761,7 @@ const translations = {
     nav_contact: "Contact",
     hero_status: "Game & Software Developer • Ath, Belgium",
     hero_title: "Building engaging, <br /><span class=\"gold-gradient-text\">resilient software</span> & interactive games.",
-    hero_subtitle: "C# • Unity • Systems Design • Planning to launch <strong style=\"color: var(--c-vibrant-gold);\">Magible Studio</strong>. Making the magic of your ideas tangible!",
+    hero_subtitle: "C# • Unity • Systems Design • Planning to launch <strong style=\"color: var(--c-vibrant-gold);\">Magible Studio</strong> (Software Tools & Games). Making the magic of your ideas tangible!",
     hero_cta_work: "Explore My Work",
     hero_cta_contact: "Get In Touch",
     hero_cta_story: "My Story",
@@ -915,10 +822,11 @@ const translations = {
     exp_sub: "From enterprise systems integration to Creative Technology and Game Development.",
     projects_tag: "04 / Creations",
     projects_heading: "Projects & Games Helix",
-    projects_sub: "Interactive 3D helix showcase of games, systems, and creative prototypes.",
+    projects_sub: "Interactive 3D helix showcase of games, systems, and creative prototypes [Under Construction].",
     showcase_hud_tag: "04 / CREATIONS &bull; BLT GAMES",
+    showcase_hud_wip: "SECTION UNDER CONSTRUCTION",
     showcase_hud_title: "PROJECTS &amp; GAMES HELIX",
-    showcase_hud_sub: "SCROLL TO ORBIT &bull; ASCEND HELICAL ARCHIVE &bull; BLT GAMES &bull; MAGIBLE STUDIO",
+    showcase_hud_sub: "SCROLL TO ORBIT &bull; WORKS IN PROGRESS &amp; ARCHIVE &bull; BLT GAMES &bull; MAGIBLE STUDIO",
     exp1_period: "March 2024 — November 2025",
     exp1_role: "Customer Relationship Manager / SD Module Integration — Key User",
     exp1_company: "Rosier S.A.",
@@ -944,7 +852,7 @@ const translations = {
     edu3_desc: "Pedagogy, German & English linguistics, cross-cultural communication and didactic methodology.",
     contact_tag: "05 / Connect",
     contact_heading: "Let's build something engaging",
-    contact_sub: "Have an idea for a game, need a software architect, or want to collaborate on Magible Studio? Feel free to reach out."
+    contact_sub: "Have an idea for a game, need custom software tools, or want to collaborate on Magible Studio? Feel free to reach out."
   },
   fr: {
     nav_about: "À Propos",
@@ -954,7 +862,7 @@ const translations = {
     nav_contact: "Contact",
     hero_status: "Développeur Jeux & Logiciels • Ath, Belgique",
     hero_title: "Des logiciels fiables,<br /><span class=\"gold-gradient-text\">des jeux immersifs</span><br />& interactifs.",
-    hero_subtitle: "C# • Unity • Systems Design • Lancement prévu de <strong style=\"color: var(--c-vibrant-gold);\">Magible Studio</strong>. Donner vie à la magie de vos idées !",
+    hero_subtitle: "C# • Unity • Systems Design • Lancement prévu de <strong style=\"color: var(--c-vibrant-gold);\">Magible Studio</strong> (Outils logiciels & Jeux). Donner vie à la magie de vos idées !",
     hero_cta_work: "Découvrir mes projets",
     hero_cta_contact: "Me contacter",
     hero_cta_story: "Mon parcours",
@@ -1015,10 +923,11 @@ const translations = {
     exp_sub: "De l'intégration des systèmes ERP d'entreprise vers la Creative Technology et le Game Development.",
     projects_tag: "04 / Créations",
     projects_heading: "Helix des Projets & Jeux",
-    projects_sub: "Showcase 3D immersif des jeux, systèmes et prototypes interactifs.",
+    projects_sub: "Showcase 3D interactif des projets en cours et réalisés [En construction].",
     showcase_hud_tag: "04 / CRÉATIONS &bull; BLT GAMES",
+    showcase_hud_wip: "SECTION EN COURS DE CONSTRUCTION",
     showcase_hud_title: "HELIX DES PROJETS &amp; JEUX",
-    showcase_hud_sub: "DÉFILER POUR PIVOTER &bull; EXPLORER L'ARCHIVE HÉLICOÏDALE &bull; BLT GAMES &bull; MAGIBLE STUDIO",
+    showcase_hud_sub: "DÉFILER POUR PIVOTER &bull; PROJETS EN COURS ET RÉALISÉS &bull; BLT GAMES &bull; MAGIBLE STUDIO",
     exp1_period: "Mars 2024 — Novembre 2025",
     exp1_role: "Customer Relationship Manager / Intégration Module SD — Key User",
     exp1_company: "Rosier S.A.",
@@ -1044,7 +953,7 @@ const translations = {
     edu3_desc: "Pédagogie, linguistique anglaise et allemande, communication interculturelle et méthodologie didactique.",
     contact_tag: "05 / Contact",
     contact_heading: "Construisons un projet marquant",
-    contact_sub: "Une idée de jeu, un besoin d'architecture logicielle ou envie d'échanger sur Magible Studio ? N'hésitez pas à me contacter."
+    contact_sub: "Une idée de jeu, un besoin d'outils logiciels sur mesure ou envie d'échanger sur Magible Studio ? N'hésitez pas à me contacter."
   }
 };
 

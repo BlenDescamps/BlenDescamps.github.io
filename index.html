@@ -15,31 +15,6 @@
 <body>
   <div class="scroll-progress-bar" id="progressBar"></div>
 
-  <div class="editor-dock" id="editorDock">
-    <div class="editor-dock-pill">
-      <button class="editor-toggle-btn" id="editorToggleBtn" title="Toggle Live On-Page Editing">
-        <i data-lucide="edit-3"></i>
-        <span>Edit Mode</span>
-      </button>
-      <div class="editor-actions" id="editorActions" style="display: none;">
-        <button class="editor-save-btn" id="editorSaveBtn" title="Save changes to your browser">
-          <i data-lucide="check"></i>
-          <span>Save</span>
-        </button>
-        <button class="editor-export-btn" id="editorExportBtn" title="Download updated index.html">
-          <i data-lucide="download"></i>
-          <span>Export HTML</span>
-        </button>
-        <button class="editor-reset-btn" id="editorResetBtn" title="Reset changes">
-          <i data-lucide="rotate-ccw"></i>
-        </button>
-      </div>
-    </div>
-    <div class="editor-hint" id="editorHint" style="display: none;">
-      Click any text on the page to edit directly
-    </div>
-  </div>
-
   <div class="bg-glow blob-1"></div>
   <div class="bg-glow blob-2"></div>
   <div class="bg-glow blob-3"></div>
@@ -81,7 +56,7 @@
             <span class="gold-gradient-text">resilient software</span> & interactive games.
           </h1>
           <p class="hero-subtitle reveal-item" data-i18n="hero_subtitle">
-            C# &bull; Unity &bull; Systems Design &bull; Planning to launch <strong style="color: var(--c-vibrant-gold);">Magible Studio</strong>. Making the magic of your ideas tangible!
+            C# &bull; Unity &bull; Systems Design &bull; Planning to launch <strong style="color: var(--c-vibrant-gold);">Magible Studio</strong> (Software Tools &amp; Games). Making the magic of your ideas tangible!
           </p>
         </div>
 
@@ -414,13 +389,16 @@
           <canvas id="showcase3dCanvas"></canvas>
           
           <div class="showcase-hud-top">
-            <div class="hud-tag" data-i18n="showcase_hud_tag">04 / CREATIONS &bull; BLT GAMES</div>
+            <div class="hud-tag-row">
+              <span class="hud-tag" data-i18n="showcase_hud_tag">04 / CREATIONS &bull; BLT GAMES</span>
+              <span class="hud-wip-badge" data-i18n="showcase_hud_wip">SECTION UNDER CONSTRUCTION</span>
+            </div>
             <h2 class="hud-title" data-i18n="showcase_hud_title">PROJECTS &amp; GAMES HELIX</h2>
-            <div class="hud-sub" data-i18n="showcase_hud_sub">SCROLL TO ORBIT &bull; ASCEND HELICAL ARCHIVE &bull; BLT GAMES &bull; MAGIBLE STUDIO</div>
+            <div class="hud-sub" data-i18n="showcase_hud_sub">SCROLL TO ORBIT &bull; WORKS IN PROGRESS &amp; ARCHIVE &bull; BLT GAMES &bull; MAGIBLE STUDIO</div>
           </div>
 
           <div class="showcase-hud-bottom">
-            <div class="hud-indicator" id="hudIndicator">ACTIVE PROJECT: 01 / 06 // AVIATOR'S QUEST</div>
+            <div class="hud-indicator" id="hudIndicator">ACTIVE PROJECT: 01 / 06 // THEY COME IN PEACE</div>
             <div class="hud-meta" id="hudMeta">BLT GAMES &bull; MAGIBLE STUDIO</div>
           </div>
         </div>
@@ -446,7 +424,7 @@
             <span class="section-tag" data-i18n="contact_tag">05 / Connect</span>
             <h2 class="section-title" data-i18n="contact_heading">Let's build something engaging</h2>
             <p class="contact-desc" data-i18n="contact_sub">
-              Have an idea for a game, need a software architect, or want to collaborate on Magible Studio? Feel free to reach out.
+              Have an idea for a game, need custom software tools, or want to collaborate on Magible Studio? Feel free to reach out.
             </p>
           </div>
 
