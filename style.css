@@ -1615,6 +1615,24 @@ body {
   box-shadow: 0 6px 16px var(--primary-glow);
 }
 
+.social-icon.social-linkedin {
+  background: rgba(10, 102, 194, 0.15);
+  border-color: rgba(10, 102, 194, 0.4);
+}
+
+.social-icon.social-linkedin:hover {
+  background: rgba(10, 102, 194, 0.35);
+  border-color: #0A66C2;
+  box-shadow: 0 8px 22px rgba(10, 102, 194, 0.55);
+}
+
+.linkedin-icon-img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  border-radius: 4px;
+}
+
 .site-footer {
   border-top: 1px solid rgba(247, 184, 1, 0.15);
   padding: 2.5rem 0;

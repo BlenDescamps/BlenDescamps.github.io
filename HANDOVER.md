@@ -25,7 +25,7 @@ The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3
 | **Typography** | Fontshare & Google Fonts | Cabinet Grotesk (headers), Plus Jakarta Sans (body), Outfit (accents), JetBrains Mono (code/HUD) |
 | **3D Engine** | Three.js (r128 CDN) | Helical 3D carousel for project showcase with camera orbit controls & custom lighting |
 | **Canvas 2D** | Native Canvas API | Dynamic floating starfield background & animated rotating Jarvis gyroscope core |
-| **Icons** | Lucide Icons (CDN) | Modern vector icons initialized on DOM ready |
+| **Icons** | Lucide Icons & Custom SVG | Modern vector icons & authentic brand assets (`linkedin.svg`) |
 | **Localization** | Custom i18n Dictionary | Client-side FR/EN toggle with `localStorage` memory and bidirectional updates |
 
 ---
@@ -77,4 +77,4 @@ The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3
 
 ### 3.7. Contact & Jarvis Core (`#contact`)
 - Interactive Canvas 2D rotating 3D wireframe sphere with pulsing node network.
-- Direct email link (`blenothelovers@hotmail.com`), GitHub, and LinkedIn links.
+- Direct email link (`blendescamps@gmail.com`) and branded LinkedIn icon button.
