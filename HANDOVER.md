@@ -3,7 +3,7 @@
 **Repository:** [BlenDescamps/BlenDescamps.github.io](https://github.com/BlenDescamps/BlenDescamps.github.io.git)  
 **Local Path:** `C:\Users\bleno\.gemini\antigravity\scratch\BlenDescamps.github.io`  
 **Current Branch:** `main`  
-**Profile:** Blen Descamps — Game & Software Developer (Ath, Belgium) &bull; BLT Games &bull; Magible Studio
+**Profile:** Blen Descamps — Game & Software Developer (Ath, Belgium) &bull; Magible Studio
 
 ---
 
@@ -11,7 +11,7 @@
 
 This repository hosts Blen Descamps' personal interactive portfolio website, designed for deployment on GitHub Pages (`https://blendescamps.github.io`). 
 
-The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3, and modular vanilla JavaScript ES6+), enhanced with **Three.js (r128)** for high-impact 3D interactions and **Lucide Icons** for UI iconography. It features an integrated bilingual translation engine (FR/EN). The 3D helix showcase features real projects (delivered titles awaiting revamp, active development, and enterprise ERP systems) with clear "Under Construction" / "En cours de construction" status notices.
+The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3, and modular vanilla JavaScript ES6+), enhanced with **Three.js (r128)** for high-impact 3D interactions and **Lucide Icons** for UI iconography. It features an integrated bilingual translation engine (FR/EN). The 3D helix showcase features real projects (delivered titles awaiting revamp, active development, and enterprise ERP systems) with clear "Under Construction" / "En cours de construction" status notices under the **Magible Studio** banner.
 
 ---
 
@@ -67,7 +67,7 @@ The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3
 - **Nationale 7** (2017–2020): Restaurant Manager & Operations Lead.
 
 ### 3.6. Creations & Projects Helix (`#projects`) [Under Construction]
-- **Three.js 3D Helical Engine** with animated glowing HUD WIP badge:
+- **Three.js 3D Helical Engine** with animated glowing HUD WIP badge under **Magible Studio**:
   1. **They come in Peace**: 2D retro arcade shooter (Status: Delivered // Awaiting Revamp &bull; Livré // En attente de refonte).
   2. **Rebekka no Fukushuu**: 2D side-scrolling action shooter (Status: Delivered // Awaiting Revamp &bull; Livré // En attente de refonte).
   3. **What can I get ya?**: 3D fast-paced drink serving arcade game (Status: Delivered // Awaiting Revamp &bull; Livré // En attente de refonte).
