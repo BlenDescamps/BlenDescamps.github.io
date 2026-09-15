@@ -759,9 +759,9 @@ const translations = {
     nav_experience: "Experience",
     nav_projects: "Projects & Games",
     nav_contact: "Contact",
-    hero_status: "Game & Software Developer • Ath, Belgium",
-    hero_title: "Building engaging, <br /><span class=\"gold-gradient-text\">resilient software</span> & interactive games.",
-    hero_subtitle: "C# • Unity • Systems Design • Planning to launch <strong style=\"color: var(--c-vibrant-gold);\">Magible Studio</strong> (Software Tools & Games). Making the magic of your ideas tangible!",
+    hero_status: "Versatile IT Professional • Ath, Belgium",
+    hero_title: "Systems integration, ERP & code<br /><span class=\"gold-gradient-text\">for reliable, robust solutions</span><br />built for the field.",
+    hero_subtitle: "Versatile IT Professional experienced in systems integration, user support, ERP, business analysis, and development, currently upskilling in advanced technical engineering.",
     hero_cta_work: "Explore My Work",
     hero_cta_contact: "Get In Touch",
     hero_cta_story: "My Story",
@@ -819,7 +819,7 @@ const translations = {
     lang_6: "HTML5 &bull; CSS3",
     exp_tag: "03 / Trajectory",
     exp_heading: "Professional Journey & Career Milestones",
-    exp_sub: "From enterprise systems integration to Creative Technology and Game Development.",
+    exp_sub: "From enterprise ERP integration and user support to systems analysis, software engineering, and technical problem-solving.",
     projects_tag: "04 / Creations",
     projects_heading: "Projects & Games Helix",
     projects_sub: "Interactive 3D helix showcase of games, systems, and creative prototypes [Under Construction].",
@@ -852,7 +852,7 @@ const translations = {
     edu3_desc: "Pedagogy, German & English linguistics, cross-cultural communication and didactic methodology.",
     contact_tag: "05 / Connect",
     contact_heading: "Let's build something engaging",
-    contact_sub: "Have an idea for a game, need custom software tools, or want to collaborate on Magible Studio? Feel free to reach out."
+    contact_sub: "Have a project in systems integration, ERP, custom software tools, or want to collaborate? Feel free to reach out."
   },
   fr: {
     nav_about: "À Propos",
@@ -860,9 +860,9 @@ const translations = {
     nav_experience: "Expérience",
     nav_projects: "Projets & Jeux",
     nav_contact: "Contact",
-    hero_status: "Développeur Jeux & Logiciels • Ath, Belgique",
-    hero_title: "Des logiciels fiables,<br /><span class=\"gold-gradient-text\">des jeux immersifs</span><br />& interactifs.",
-    hero_subtitle: "C# • Unity • Systems Design • Lancement prévu de <strong style=\"color: var(--c-vibrant-gold);\">Magible Studio</strong> (Outils logiciels & Jeux). Donner vie à la magie de vos idées !",
+    hero_status: "Professionnel IT Polyvalent • Ath, Belgique",
+    hero_title: "Intégration, ERP & développement :<br /><span class=\"gold-gradient-text\">des solutions logicielles fiables</span><br />et adaptées au terrain.",
+    hero_subtitle: "Professionnel IT polyvalent avec expérience en intégration de systèmes, support utilisateurs, ERP, analyse et développement, aujourd'hui en montée en compétence technique.",
     hero_cta_work: "Découvrir mes projets",
     hero_cta_contact: "Me contacter",
     hero_cta_story: "Mon parcours",
@@ -920,7 +920,7 @@ const translations = {
     lang_6: "HTML5 &bull; CSS3",
     exp_tag: "03 / Trajectoire",
     exp_heading: "Parcours Professionnel & Jalons",
-    exp_sub: "De l'intégration des systèmes ERP d'entreprise vers la Creative Technology et le Game Development.",
+    exp_sub: "De l'intégration de systèmes ERP et du support vers l'analyse fonctionnelle, le développement logiciel et les technologies avancées.",
     projects_tag: "04 / Créations",
     projects_heading: "Helix des Projets & Jeux",
     projects_sub: "Showcase 3D interactif des projets en cours et réalisés [En construction].",
@@ -953,7 +953,7 @@ const translations = {
     edu3_desc: "Pédagogie, linguistique anglaise et allemande, communication interculturelle et méthodologie didactique.",
     contact_tag: "05 / Contact",
     contact_heading: "Construisons un projet marquant",
-    contact_sub: "Une idée de jeu, un besoin d'outils logiciels sur mesure ou envie d'échanger sur Magible Studio ? N'hésitez pas à me contacter."
+    contact_sub: "Un besoin en intégration de systèmes, ERP, développement d'outils ou envie d'échanger ? N'hésitez pas à me contacter."
   }
 };
 

@@ -3,7 +3,7 @@
 **Repository:** [BlenDescamps/BlenDescamps.github.io](https://github.com/BlenDescamps/BlenDescamps.github.io.git)  
 **Local Path:** `C:\Users\bleno\.gemini\antigravity\scratch\BlenDescamps.github.io`  
 **Current Branch:** `main`  
-**Profile:** Blen Descamps — Game & Software Developer (Ath, Belgium) &bull; Magible Studio
+**Profile:** Blen Descamps — Professionnel IT Polyvalent (Ath, Belgium) &bull; Magible Studio
 
 ---
 
