@@ -53,7 +53,7 @@ The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3
 
 ### 3.4. Capabilities & Education (`#skills`)
 - **Tools**: Unity, Unreal Engine, Visual Studio, Rider, Git / GitHub / CI/CD, Jira / HacknPlan, ERP (SAP SD, Odoo), Microsoft 365.
-- **Skills**: Gameplay Programming & C# Architecture, Game Design & Mechanics, BPML / BPMN modeling, Business Analysis & User Stories, Agile/Sprint management, Responsible AI, Internal Audit, IT Systems Integration.
+- **Skills**: Business Analysis & User Stories, BPML / BPMN process modeling, Agile / Scrum Sprint management, C# Software Architecture & OOP, IT Systems Integration, Gameplay Programming & Real-time 3D, Responsible AI, Internal Audit.
 - **Languages**: French (Native), English, Dutch, C#, JavaScript, HTML5/CSS3.
 - **Education**:
   - Technocité (2025–2026): Game Development Specialization.
