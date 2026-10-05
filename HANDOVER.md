@@ -61,7 +61,7 @@ The site is built with a zero-dependency build setup (vanilla HTML5, modern CSS3
   - HELHa (2016–2018): Teaching Degree / Germanic Languages & Linguistics.
 
 ### 3.5. Professional Trajectory (`#experience`)
-- **Rosier S.A.** (2024–2025): Customer Relationship Manager / SAP SD Module Integration Key User.
+- **Rosier S.A.** (2024–2025): Customer Relationship Manager / Business Analyst (Key User SAP SD & FI/CO).
 - **Lutosa** (2022–2023): Transport Planning Specialist / WMS integration & BPMN modeling.
 - **SOTECNA S.A.** (2021–2022): Coordinator in Sales & Logistics / Odoo ERP Integration.
 - **Nationale 7** (2017–2020): Restaurant Manager & Operations Lead.
